@@ -1,0 +1,29 @@
+{
+  "name": "dw-tasks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdamRohmanN/dw-tasks.git"
+  },
+  "author": "Adam Rohman Nurhanafiansyah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdamRohmanN/dw-tasks/issues"
+  },
+  "homepage": "https://github.com/AdamRohmanN/dw-tasks#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "db": "^3.3.1",
+    "express": "^4.17.3",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.2",
+    "hbs": "^4.2.0",
+    "multer": "^1.4.4"
+  }
+}
