@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Update Blog</title>
+        <link rel="icon" href="../assets/logo.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="../style.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
+    </head>
+    
+    <body class="bg-gray">
+        <nav class="container-fluid bg-white">
+            <div class="container">
+                <div class="row d-flex align-items-center py-2">
+                    <a class="col-md-1 col-lg-1" href="/"><img src="../assets/logo.png" alt="logo"></a>
+                    <a class="col-md-2 col-lg-1 btn fw-500" href="/">Home</a>
+                    {{#if login}}
+                    <a class="col-md-2 col-lg-2 btn fw-500" href="blog-add">Add Project</a>
+                    {{else}}
+                    <a class="col-md-2 col-lg-2" href="#"></a>
+                    {{/if}}
+                    <div class="col-md col-lg">{{#if messages.success}}<div class="aler alert-success text-center rounded-pill bold">{{messages.success}}</div>{{/if}}</div>
+                    {{#if login}}
+                    <a class="col-md col-lg-3 btn fw-500">Hi! {{user.username}}</a>
+                    <a class="col-md-2 col-lg-1 btn fw-500" href="/logout">Logout</a>
+                    {{else}}
+                    <a class="col-md-2 col-lg-1 btn fw-500" href="/register">Register</a>
+                    <a class="col-md-2 col-lg-1 btn fw-500" href="/login">Login</a>
+                    {{/if}}
+                    <div class="col-md-12 col-lg-2 mt-md-2 mt-lg-0 d-flex">
+                        <a class="btn btn-dark flex-fill fw-500" href="contact">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="container">
+            <form class="col-lg-8 mx-auto" action="/update-blog/{{id}}" method="post" enctype="multipart/form-data">
+                <h1 class="my-5 text-center bold">UPDATE MY PROJECT</h1>
+                <label class="fw-500" for="project-name">Project Name</label>
+                <input class="input w-100 rounded mb-3 shadow" name="inputTitle" type="text" maxlength="120" value="{{blog.title}}">
+
+                <div class="row gx-1 mb-3">
+                    <div class="col-md-6 col-lg-6 d-flex flex-column">
+                        <label class="fw-500" for="start-date">Start Date</label>
+                        <input class="input rounded txt-gray shadow" name="inputStart" type="date" value="{{blog.start}}">
+                    </div>
+                    <div class="col-md-6 col-lg-6 d-flex flex-column">
+                        <label class="fw-500" for="end-date">End Date</label>
+                        <input class="input rounded txt-gray shadow" name="inputEnd" type="date" value="{{blog.end}}">
+                    </div>
+                </div>
+
+                <label class="fw-500" for="description">Description</label>
+                <textarea class="input w-100 rounded mb-3 shadow" name="inputDesc" rows="10">{{blog.description}}</textarea>
+
+                <label class="fw-500 mb-2">Technologies</label>
+                <div class="row mb-2">
+                    <div class="col-md-3 col-lg-6 mb-2">
+                        <input id="node-js" name="nodeJs" type="checkbox" {{#if blog.node}} checked {{/if}}>
+                        <label class="ms-2" for="node-js">Node Js</label>
+                    </div>
+                    <div class="col-md-3 col-lg-6 mb-2">
+                        <input id="next-js" name="nextJs" type="checkbox" {{#if blog.next}} checked {{/if}}>
+                        <label class="ms-2" for="next-js">Next Js</label>
+                    </div>
+                    <div class="col-md-3 col-lg-6 mb-2">
+                        <input id="react-js" name="reactJs" type="checkbox" {{#if blog.react}} checked {{/if}}>
+                        <label class="ms-2" for="react-js">React Js</label>
+                    </div>
+                    <div class="col-md-3 col-lg-6 mb-2">
+                        <input id="type-script" name="typeScript" type="checkbox" {{#if blog.type}} checked {{/if}}>
+                        <label class="ms-2" for="type-script">TypeScript</label>
+                    </div>
+                </div>
+
+                <label class="fw-500" for="upload-image">Upload Image</label>
+                <div class="d-flex shadow mb-4">
+                    <label class="btn-choose corner-l px-4" for="upload-image">Choose</label>
+                    <input id="upload-image" class="w-100 bg-white corner-y txt-gray" name="inputImage" type="file" accept="image/*">
+                    <label class="bg-white corner-r" for="upload-image"><img class="rt-45" src="../assets/file.png" alt="paper-clip"></label>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-dark rounded-pill px-5 mb-5 bold" type="submit">submit</button>
+                </div>
+            </form>
+        </section>
+    </body>
+</html>

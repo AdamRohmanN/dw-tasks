@@ -1,0 +1,79 @@
+a {color: #212529; text-decoration: none;}
+textarea {resize: vertical;}
+
+.h-250px {height: 250px;}
+.h-300px {height: 300px;}
+
+.vh-85 {height: 85vh;}
+.vh-90 {height: 90vh;}
+
+.bg-gray {background: #DCE0E4;}
+.txt-gray {color: #909090;}
+
+.fw-500 {font-weight: 500;}
+.fw-900 {font-weight: 900;}
+.bold {font-weight: bold;}
+
+.txt-justify {text-align: justify;}
+.lh {line-height: 0;}
+
+.rt-45 {transform: rotate(45deg);}
+
+.icon {max-height: 35px;}
+.undefined {display: none;}
+
+.fit-cover {object-fit: cover;}
+
+.btn-choose {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    background: #CCCCCC;
+    border-right: 1px solid gray;
+    color: gray;
+}
+.input {
+    padding: 0.5rem;
+    border: 1px solid gray;
+}
+.corner-y {
+    padding: 0.5rem;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+.corner-l {
+    padding: 0.5rem;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    border-bottom: 1px solid gray;
+    border-radius: 5px 0 0 5px;
+}
+.corner-r {
+    padding: 0.5rem;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    border-radius: 0 5px 5px 0;
+}
+.break-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.break-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+::-webkit-file-upload-button {
+    display: none
+}
+@media only screen and (max-width: 991px) {
+    .profile-card {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
