@@ -3,7 +3,7 @@ const session = require('express-session')
 const flash = require('express-flash')
 const db = require('./connection/db')
 const upload = require('./middleware/file-upload')
-const bycrypt = require('bcrypt')
+const bcrypt = require('bcrypt')
 
 const app = express()
 
@@ -57,7 +57,7 @@ app.get("/register", (req, res) => {
 app.post("/register", (req, res) => {
     const {username, email, password} = req.body
     const hashedPerSecond = 10
-    const hashedPassword = bycrypt.hashSync(password, hashedPerSecond)
+    const hashedPassword = bcrypt.hashSync(password, hashedPerSecond)
 
     const order = `INSERT INTO tb_user(username, email, password) VALUES (
         '${username}', '${email}', '${hashedPassword}')`
@@ -92,7 +92,7 @@ app.post("/login", (req, res) => {
                 req.flash('danger', "email belum terdaftar")
                 return res.redirect("/login")
             }
-            const passCheck = bycrypt.compareSync(password, result.rows[0].password)
+            const passCheck = bcrypt.compareSync(password, result.rows[0].password)
 
             if (passCheck) {
                 req.session.login = true
